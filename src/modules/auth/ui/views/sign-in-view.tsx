@@ -29,9 +29,11 @@ const formSchema = z.object({
   email: z.string()
     .min(1, { message: "Email address is required." })
     .email("Enter a valid email address."),
-  password: z.string().min(1, { 
-    message: "Password is required."
-  }) 
+  password: z.string()
+    .min(8, { message: "Password must be at least 8 characters." })
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, {
+      message: "Password must contain at least one uppercase letter, one lowercase letter, and one number."
+  })
 });
 
 export const SignInView = () => {
@@ -63,6 +65,7 @@ export const SignInView = () => {
         },
         onError: ({ error } ) => {
           setError(error.message);
+          setPending(false);
         }
       }
     );
@@ -183,7 +186,7 @@ export const SignInView = () => {
           </Form>
             <div className="bg-gradient-to-br from-green-400 via-emerald-500 to-green-800 relative md:flex flex-col gap-y-4 items-center justify-center py-8">
             <img
-              src="\logo.svg"
+              src="/logo.svg"
               alt="Modern AI logo"
               className="h-[96px] w-[96px] drop-shadow-[0_0_6px_rgba(0,255,200,0.4)] transition-transform duration-300 hover:scale-105"
             />

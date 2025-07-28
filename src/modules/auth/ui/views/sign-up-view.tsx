@@ -32,8 +32,10 @@ const formSchema = z.object({
   email: z.string()
     .min(1, { message: "Email address is required." })
     .email("Enter a valid email address."),
-  password: z.string().min(1, { 
-    message: "Password is required." 
+  password: z.string()
+    .min(8, { message: "Password must be at least 8 characters." })
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, {
+      message: "Password must contain at least one uppercase letter, one lowercase letter, and one number."
   }),
   confirmPassword: z.string().min(1, { 
     message: "Please confirm your password." 
@@ -190,7 +192,7 @@ export const SignUpView = () => {
                   type="submit"
                   className="w-full"
                 >
-                    Sign in 
+                    Create account 
                 </Button>
 
                 <div className="relative w-full text-center text-sm text-muted-foreground">
