@@ -21,8 +21,8 @@ import { useForm } from "react-hook-form";
 import { Form } from "@/components/ui/form"; // ✅ from your UI lib (shadcn/ui)
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 const formSchema = z.object({
@@ -56,7 +56,8 @@ export const SignInView = () => {
     await authClient.signIn.email (
       {
         email: data.email,
-        password: data.password
+        password: data.password,
+        callbackURL: "/"
       }, 
       {
         onSuccess: () => {
@@ -66,6 +67,26 @@ export const SignInView = () => {
         onError: ({ error } ) => {
           setError(error.message);
           setPending(false);
+        }
+      }
+    );
+  }
+
+  const onSocial = (provider: "github" | "google") => {
+    setError(null);
+    setPending(true);
+
+    authClient.signIn.social (
+      {
+        provider: provider,
+        callbackURL: "/"
+      }, 
+      {
+        onSuccess: () => {
+          setPending(false);
+        },
+        onError: ({ error } ) => {
+          setError(error.message);
         }
       }
     );
@@ -153,6 +174,7 @@ export const SignInView = () => {
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("google")}
                     variant="outline"
                     type="button"
                     className="w-full gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 hover:shadow-sm transition"
@@ -163,6 +185,7 @@ export const SignInView = () => {
 
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("github")}
                     variant="outline"
                     type="button"
                     className="w-full gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 hover:shadow-sm transition"

@@ -21,8 +21,8 @@ import { useForm } from "react-hook-form";
 import { Form } from "@/components/ui/form"; // ✅ from your UI lib (shadcn/ui)
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 const formSchema = z.object({
@@ -68,12 +68,33 @@ export const SignUpView = () => {
       {
         name: data.name,  
         email: data.email,
-        password: data.password
+        password: data.password,
+        callbackURL: "/"
       }, 
       {
         onSuccess: () => {
           setPending(false);
           router.push("/");
+        },
+        onError: ({ error } ) => {
+          setError(error.message);
+        }
+      }
+    );
+  }
+
+  const onSocial = (provider: "github" | "google") => {
+    setError(null);
+    setPending(true);
+
+    authClient.signIn.social (
+      {
+        provider: provider,
+        callbackURL: "/"
+      }, 
+      {
+        onSuccess: () => {
+          setPending(false);
         },
         onError: ({ error } ) => {
           setError(error.message);
@@ -137,7 +158,7 @@ export const SignUpView = () => {
                 </div>
                 <div className="grid gap-3">
                   <FormField
-                    control = {form.control}
+                    control={form.control}
                     name="password"
                     render={({ field }) => (
                       <FormItem>
@@ -145,11 +166,17 @@ export const SignUpView = () => {
                         <FormControl>
                           <Input
                             type="password"
-                            placeholder="Enter your password"  
+                            placeholder="Enter your password"
                             {...field}
                           />
                         </FormControl>
                         <FormMessage />
+                        <ul className="text-xs text-muted-foreground mt-1 list-disc list-inside space-y-0.5">
+                          <li>At least 8 characters</li>
+                          <li>One uppercase letter</li>
+                          <li>One lowercase letter</li>
+                          <li>One number</li>
+                        </ul>
                       </FormItem>
                     )}
                   />
@@ -202,6 +229,7 @@ export const SignUpView = () => {
                 <div className="grid grid-cols-2 gap-4 mt-6">
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("google")}
                     variant="outline"
                     type="button"
                     className="w-full gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 hover:shadow-sm transition"
@@ -212,6 +240,7 @@ export const SignUpView = () => {
 
                   <Button
                     disabled={pending}
+                    onClick={() => onSocial("github")}
                     variant="outline"
                     type="button"
                     className="w-full gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 hover:shadow-sm transition"
