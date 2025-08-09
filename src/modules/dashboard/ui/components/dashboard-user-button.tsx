@@ -102,7 +102,6 @@ export const DashboardUserButton = () => {
       </Drawer>
     )
   }
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
