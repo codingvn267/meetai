@@ -1,4 +1,3 @@
-import { Loader2Icon } from "lucide-react";
 
 interface Props {
   title:string;
