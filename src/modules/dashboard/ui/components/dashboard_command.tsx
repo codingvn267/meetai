@@ -1,4 +1,4 @@
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
+import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandResponsiveDialog } from "@/components/ui/command";
 import { CalendarIcon, SearchIcon, UserIcon } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 
@@ -9,7 +9,7 @@ interface Props {
 
 export const DashboardCommand =({ open, setOpen}: Props) => {
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandResponsiveDialog open={open} onOpenChange={setOpen}>
       <CommandInput
         placeholder="Search meetings, agents, or commands..."
         className="text-sm placeholder:text-gray-500 text-gray-900 dark:text-gray-100"
@@ -38,6 +38,6 @@ export const DashboardCommand =({ open, setOpen}: Props) => {
           </CommandItem>
         </CommandGroup>
       </CommandList>
-    </CommandDialog>
+    </CommandResponsiveDialog>
   );
 };
