@@ -2,7 +2,7 @@ import { db } from "@/db";
 import { agents } from "@/db/schema";
 import { createTRPCRouter, protectedProcedure } from "@/trpc/init";
 import { agentsInsertSchema } from "../schemas";
-import z from "zod";
+import { z }from "zod";
 import { eq } from "drizzle-orm";
 
 export const agentsRouter = createTRPCRouter ({
