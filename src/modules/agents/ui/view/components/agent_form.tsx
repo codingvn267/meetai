@@ -4,7 +4,7 @@ import { useTRPC } from "@/trpc/client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
-import z from "zod";
+import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -80,10 +80,13 @@ export const AgentForm = ({
     <Form {...form}>
       <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
         <GenerateAvatar 
-          seed={form.watch("name")}
           variant="botttsNeutral"
-          className="size-16 rounded-xl border border-white/20 bg-white/80 p-1 shadow-sm ring-1 ring-black/5 backdrop-blur dark:border-white/10 dark:bg-zinc-900/80"
+          seed={form.getValues("name")}
+          className="size-9 rounded-full bg-zinc-100 text-zinc-700 
+                    ring-2 ring-zinc-200 shadow-sm
+                    dark:bg-zinc-800 dark:text-zinc-200 dark:ring-zinc-700"
         />
+
         <FormField 
           name = "name"
           control={form.control}
