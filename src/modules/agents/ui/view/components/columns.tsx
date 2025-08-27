@@ -14,8 +14,8 @@ export const columns: ColumnDef<AgentGetOne>[] = [
   {
     accessorKey: "name",
     header: "Agent Name",
-    cell: ({ row }) => (
-    <div className="flex flex-col gap-y-2 min-w-0">
+  cell: ({ row }) => (
+  <div suppressHydrationWarning={true} className="flex flex-col gap-y-2 min-w-0">
   {/* Avatar + Name */}
       <div className="flex items-center gap-x-3">
         <GenerateAvatar

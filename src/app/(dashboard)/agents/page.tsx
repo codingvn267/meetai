@@ -24,8 +24,10 @@ const Page = async ({ searchParams }: Props) => {
   // prefetch
   const queryClient = getQueryClient();
 
-  // like the YouTuber: fire-and-forget prefetch
-  void queryClient.prefetchQuery(
+  // Prefetch on the server and await so the cache contains the data
+  // before we dehydrate it. This ensures the server HTML matches the
+  // client on first render and prevents hydration failures.
+  await queryClient.ensureQueryData(
     trpc.agents.getMany.queryOptions({ ...filters })
   );
 

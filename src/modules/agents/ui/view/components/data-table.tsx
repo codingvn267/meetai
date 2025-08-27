@@ -48,7 +48,9 @@ export function DataTable<TData, TValue>({
             <TableRow
               onClick={() => onRowClick?.(row.original)}
               key={row.id}
-              data-state={row.getIsSelected() && "selected"}
+              // make data-state explicit to avoid boolean attribute mismatches
+              data-state={row.getIsSelected() ? "selected" : undefined}
+              suppressHydrationWarning={true}
               className="
                 cursor-pointer transition-colors
                 hover:bg-zinc-50/70 dark:hover:bg-zinc-800/60
@@ -58,6 +60,7 @@ export function DataTable<TData, TValue>({
               {row.getVisibleCells().map((cell) => (
                 <TableCell
                   key={cell.id}
+                  suppressHydrationWarning={true}
                   className="py-3 first:pl-4 last:pr-4 align-middle text-sm"
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
