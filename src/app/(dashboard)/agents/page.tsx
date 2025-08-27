@@ -5,29 +5,38 @@ import { AgentsListHeader } from "@/modules/agents/ui/view/components/agents_lis
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import type { SearchParams } from "nuqs";
+import { loadSearchParams } from "@/modules/agents/params";
 
-export default async function Page() {
-  const qc = getQueryClient();
+interface Props {
+  searchParams: Promise<SearchParams>;
+}
 
-  const session = await auth.api.getSession({
-    headers: await headers(), // <- you forgot to import this in the screenshot
-  });
-  if (!session) {
-    redirect("/sign-in"); // <- also needs import
-  }
+const Page = async ({ searchParams }: Props) => {
+  // parse URL params on the server
+  const filters = await loadSearchParams(searchParams);
+  // { page: number, search: string }
 
-  // IMPORTANT: await this so it resolves or throws before dehydrate
-  await qc.ensureQueryData(trpc.agents.getMany.queryOptions());
-  // (prefetchQuery + await also works)
+  // auth guard
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) redirect("/sign-in");
+
+  // prefetch
+  const queryClient = getQueryClient();
+
+  // like the YouTuber: fire-and-forget prefetch
+  void queryClient.prefetchQuery(
+    trpc.agents.getMany.queryOptions({ ...filters })
+  );
 
   return (
     <>
       <AgentsListHeader />
-      <HydrationBoundary state={dehydrate(qc)}>
+      <HydrationBoundary state={dehydrate(queryClient)}>
         <AgentsView />
       </HydrationBoundary>
     </>
   );
-}
+};
 
-
+export default Page;
