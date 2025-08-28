@@ -33,6 +33,7 @@ export function DataTable<TData, TValue>({
 
   return (
   <div
+    suppressHydrationWarning={true}
     className="
       overflow-hidden
       rounded-none border-0 bg-white text-zinc-900 shadow-sm
