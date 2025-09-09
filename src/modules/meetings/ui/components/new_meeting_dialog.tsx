@@ -20,11 +20,13 @@ export const NewAgentDialog = ({
       onOpenChange={onOpenChange}
     >
       <MeetingForm
-        onSuccess={(id) => {
+        onSuccess={() => {
           onOpenChange(false);
-          router.push(`/meetings/${id}`);
+          // After creating a meeting, return to the meetings list so the user
+          // sees the updated list instead of a placeholder detail page.
+          router.push(`/meetings`);
         }}
-        onCancel={() => onOpenChange}
+        onCancel={() => onOpenChange(false)}
       />
     </ResponsiveDialog>
   )
