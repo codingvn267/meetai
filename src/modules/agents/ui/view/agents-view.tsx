@@ -4,7 +4,7 @@ import { LoadingState } from "@/components/loading-state";
 import { useTRPC } from "@/trpc/client";
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { DataTable } from "./components/data-table";
+import { DataTable } from "@/components/data-table";
 import { columns } from "./components/columns";
 import { EmptyState } from "@/components/empty-state";
 import { useAgentFilters } from "../../hooks/use-agent-filters";
@@ -46,7 +46,7 @@ export const AgentsView = () => {
         totalPages={data?.totalPages ?? 1}
         onPageChange={(page) => setFilters({ page })}
       />
-      {items.length === 0 && (
+      {data && data.items.length === 0 && (
         <EmptyState
           title="Create your first agent"
           description="🤖 Spin up your Agent! Your agent will hop into meetings, follow your lead, and chat with participants — like your own sidekick on the call."
