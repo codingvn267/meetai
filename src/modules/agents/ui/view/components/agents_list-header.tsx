@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useAgentFilters } from "@/modules/agents/hooks/use-agent-filters";
 import { AgentSearchFilter } from "./agents-search-filter";
 import { DEFAULT_PAGE } from "@/constant";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export const AgentsListHeader = () => {
   const [filters, setFilters] = useAgentFilters();
@@ -17,7 +18,7 @@ export const AgentsListHeader = () => {
   const onClearFilters = () => {
     setFilters({
       search: "",
-      page:DEFAULT_PAGE
+      page: DEFAULT_PAGE
     })
   }
   return (
@@ -37,25 +38,28 @@ export const AgentsListHeader = () => {
             Add Agent
           </Button>
         </div>
-        <div className = "flex items-center gap-x-2 p-1">
-          <AgentSearchFilter />
-          {isAnyFilterModified && (
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={onClearFilters}
-              className="inline-flex items-center gap-1.5 h-9 px-3 rounded-md border border-gray-200
-                        text-gray-900 dark:text-gray-100
-                        hover:bg-gray-50 dark:hover:bg-gray-800/50
-                        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60
-                        shadow-sm transition"
-            >
-              <XCircleIcon className="h-4 w-4" />
-              <span>Clear</span>
-            </Button>
-          )}
-        </div>
+        <ScrollArea>
+          <div className = "flex items-center gap-x-2 p-1">
+            <AgentSearchFilter />
+            {isAnyFilterModified && (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={onClearFilters}
+                className="inline-flex items-center gap-1.5 h-9 px-3 rounded-md border border-gray-200
+                          text-gray-900 dark:text-gray-100
+                          hover:bg-gray-50 dark:hover:bg-gray-800/50
+                          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60
+                          shadow-sm transition"
+              >
+                <XCircleIcon className="h-4 w-4" />
+                <span>Clear</span>
+              </Button>
+            )}
+          </div>
+          <ScrollBar orientation="horizontal"/>
+        </ScrollArea>
       </div>
     </>
   );
