@@ -70,7 +70,7 @@ export const ResponsiveDialog = ({
                   transition
                 "
               >
-                <X className="h-4 w-4" />
+                <X className="icon-size" />
               </button>
             </DrawerClose>
           </DrawerHeader>
@@ -118,7 +118,7 @@ export const ResponsiveDialog = ({
                 transition
               "
             >
-              <X className="h-4 w-4" />
+              <X className="icon-size" />
             </button>
           </DialogClose>
         </DialogHeader>

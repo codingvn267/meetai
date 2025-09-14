@@ -36,7 +36,7 @@ export const MeetingsSearchFilter = () => {
         onChange={(e) => setLocal(e.target.value)}
       />
 
-      <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+  <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 icon-size text-muted-foreground" />
     </div>
   )
 }

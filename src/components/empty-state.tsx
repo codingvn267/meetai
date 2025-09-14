@@ -3,14 +3,19 @@ import Image from "next/image";
 interface Props {
   title: string;
   description: string;
+  image?: string;
 }
 
-export const EmptyState = ({ title, description }: Props) => {
+export const EmptyState = ({ 
+  title, 
+  description,
+  image="/empty.svg" 
+}: Props) => {
   return (
     <div className="flex flex-col items-center justify-center py-12 px-6 text-center rounded-2xl border border-border bg-muted/30 shadow-sm">
       <div className="mb-6">
         <Image
-          src="/empty.svg"
+          src={image}
           alt="Empty"
           width={0}
           height={0}

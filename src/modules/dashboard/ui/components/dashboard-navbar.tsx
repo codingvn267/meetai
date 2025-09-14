@@ -30,8 +30,8 @@ export const DashboardNavbar = () => {
           className="rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
           onClick = {toggleSidebar}
         >
-          {(state === "collapsed" || isMobile) ?<PanelLeftIcon className="w-6 h-6 text-gray-700 dark:text-gray-200" /> :
-            <PanelLeftCloseIcon className="w-6 h-6 text-gray-700 dark:text-gray-200" />}
+          {(state === "collapsed" || isMobile) ?<PanelLeftIcon className="icon-large text-gray-700 dark:text-gray-200" /> :
+            <PanelLeftCloseIcon className="icon-large text-gray-700 dark:text-gray-200" />}
         </Button>
 
         <Button
@@ -41,7 +41,7 @@ export const DashboardNavbar = () => {
           className="flex items-center justify-between w-56 px-4 py-2 text-sm text-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 transition"
         >
           <div className="flex items-center gap-2">
-            <SearchIcon className="w-4 h-4" />
+            <SearchIcon className="icon-size" />
             <span className="text-sm">Search</span>
           </div>
           

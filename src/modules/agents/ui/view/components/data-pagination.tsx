@@ -33,7 +33,7 @@ export const DataPagination = ({ page, totalPages, onPageChange }: Props) => {
           aria-label="Previous page"
           className="inline-flex items-center gap-1.5 text-gray-900 dark:text-gray-100"
         >
-          <ChevronLeft className="h-4 w-4" />
+          <ChevronLeft className="icon-size" />
           Previous
         </Button>
 
@@ -51,7 +51,7 @@ export const DataPagination = ({ page, totalPages, onPageChange }: Props) => {
           className="inline-flex items-center gap-1.5 text-gray-900 dark:text-gray-100"
         >
           Next
-          <ChevronRight className="h-4 w-4" />
+          <ChevronRight className="icon-size" />
         </Button>
       </div>
     </div>

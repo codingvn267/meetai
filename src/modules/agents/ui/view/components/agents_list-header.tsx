@@ -32,9 +32,10 @@ export const AgentsListHeader = () => {
           <Button
             onClick={() => setIsDialogOpen(true)}
             variant="default"
+            size="sm"
             className="gap-2"
           >
-            <PlusIcon className="w-4 h-4" />
+            <PlusIcon className="icon-size" />
             Add Agent
           </Button>
         </div>
@@ -53,7 +54,7 @@ export const AgentsListHeader = () => {
                           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60
                           shadow-sm transition"
               >
-                <XCircleIcon className="h-4 w-4" />
+                <XCircleIcon className="icon-size" />
                 <span>Clear</span>
               </Button>
             )}

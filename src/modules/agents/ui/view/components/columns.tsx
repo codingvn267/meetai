@@ -21,7 +21,7 @@ export const columns: ColumnDef<AgentGetMany[number]>[] = [
         <GenerateAvatar
           variant="botttsNeutral"
           seed={row.original.name}
-          className="size-9 rounded-full bg-zinc-100 text-zinc-700 ring-2 ring-zinc-200
+          className="avatar-md rounded-full bg-zinc-100 text-zinc-700 ring-2 ring-zinc-200
                     dark:bg-zinc-800 dark:text-zinc-200 dark:ring-zinc-700 shadow-sm"
         />
         <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100 truncate max-w-[220px]">
@@ -31,7 +31,7 @@ export const columns: ColumnDef<AgentGetMany[number]>[] = [
 
       {/* Instructions */}
       <div className="flex items-center gap-x-3 pl-1">
-        <CornerDownRightIcon className="size-4 text-zinc-400 dark:text-zinc-500" />
+  <CornerDownRightIcon className="icon-size text-zinc-400 dark:text-zinc-500" />
         <span className="text-sm text-zinc-600 dark:text-zinc-300 truncate max-w-[260px]">
           {row.original.instructions}
         </span>
@@ -49,7 +49,7 @@ export const columns: ColumnDef<AgentGetMany[number]>[] = [
                   text-xs font-medium bg-blue-50 text-blue-700 ring-1 ring-blue-200
                   dark:bg-blue-900/30 dark:text-blue-300 dark:ring-blue-800"
       >
-        <VideoIcon className="size-3.5" />
+  <VideoIcon className="icon-size" />
         {row.original.meetingCount} {row.original.meetingCount === 1 ? "meeting" : "meetings"}
       </Badge>
     )

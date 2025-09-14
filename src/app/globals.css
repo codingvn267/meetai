@@ -86,6 +86,11 @@
   --chart-3: oklch(0.42 0.1 240);
   --chart-4: oklch(0.82 0.19 90);
   --chart-5: oklch(0.78 0.18 70);
+  /* UI helpers */
+  --icon-size: 1rem; /* 16px */
+  --icon-large: 1.25rem; /* 20px */
+  --avatar-sm: 1.5rem; /* 24px */
+  --avatar-md: 2.25rem; /* 36px */
 }
 
 /* Dark Mode Variant */
@@ -133,6 +138,14 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
+}
+
+/* Small helper utilities for icons and avatars used across components */
+@layer utilities {
+  .icon-size { width: var(--icon-size); height: var(--icon-size); }
+  .icon-large { width: var(--icon-large); height: var(--icon-large); }
+  .avatar-sm { width: var(--avatar-sm); height: var(--avatar-sm); }
+  .avatar-md { width: var(--avatar-md); height: var(--avatar-md); }
 }
 
 @layer base {

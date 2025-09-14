@@ -48,7 +48,7 @@ export const MeetingIdViewHeader = ({
           </BreadcrumbItem>
 
           <BreadcrumbSeparator aria-hidden="true">
-            <ChevronRightIcon className="h-4 w-4 text-gray-400" />
+            <ChevronRightIcon className="icon-size text-gray-400" />
           </BreadcrumbSeparator>
 
           <BreadcrumbItem className="max-w-[55vw]">
@@ -60,7 +60,7 @@ export const MeetingIdViewHeader = ({
       </Breadcrumb>
 
       <DropdownMenu modal={false}>
-        <DropdownMenuTrigger asChild>
+            <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             size="icon"
@@ -68,7 +68,7 @@ export const MeetingIdViewHeader = ({
             className="h-9 w-9 rounded-md text-gray-900 dark:text-gray-100
                        hover:bg-gray-100 dark:hover:bg-zinc-800"
           >
-            <MoreVerticalIcon className="h-4 w-4" />
+            <MoreVerticalIcon className="icon-size" />
           </Button>
         </DropdownMenuTrigger>
 
@@ -81,7 +81,7 @@ export const MeetingIdViewHeader = ({
             onClick={onEdit}
             className="gap-2 text-gray-900 dark:text-gray-100"
           >
-            <PencilIcon className="h-4 w-4 text-gray-500" />
+            <PencilIcon className="icon-size text-gray-500" />
             Edit
           </DropdownMenuItem>
 
@@ -89,7 +89,7 @@ export const MeetingIdViewHeader = ({
             onClick={onRemove}
             className="gap-2 text-red-600 focus:text-red-700 hover:text-red-700"
           >
-            <TrashIcon className="h-4 w-4" />
+            <TrashIcon className="icon-size" />
             Delete
           </DropdownMenuItem>
         </DropdownMenuContent>

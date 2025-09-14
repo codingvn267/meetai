@@ -71,7 +71,7 @@ export const DashboardSidebar = () => {
                     )}
                   >
                     <Link href={item.href} className="flex items-center gap-3 w-full group">
-                      <item.icon className="h-5 w-5 text-white/80 group-hover:text-white transition-colors" />
+                      <item.icon className="icon-large text-white/80 group-hover:text-white transition-colors" />
                       <span className="text-sm font-semibold transition-all group-hover:tracking-wider">
                         {item.label}
                       </span>
@@ -102,7 +102,7 @@ export const DashboardSidebar = () => {
                     )}
                   >
                     <Link href={item.href} className="flex items-center gap-3 w-full group">
-                      <item.icon className="h-5 w-5 text-white/80 group-hover:text-white transition-colors" />
+                      <item.icon className="icon-large text-white/80 group-hover:text-white transition-colors" />
                       <span className="text-sm font-semibold transition-all group-hover:tracking-wider">
                         {item.label}
                       </span>
