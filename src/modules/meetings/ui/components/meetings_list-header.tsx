@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { PlusIcon, XCircleIcon } from "lucide-react";
-import { NewAgentDialog } from "./new_meeting_dialog";
+import { NewMeetingDialog } from "./new_meeting_dialog";
 import { useState } from "react";
 import { MeetingsSearchFilter } from "./meetings-search-filter";
 import { StatusFilter } from "./status-filter";
@@ -26,7 +26,7 @@ export const MeetingsListHeader = () => {
   }
   return (
     <>
-      <NewAgentDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}/>
+      <NewMeetingDialog open={isDialogOpen} onOpenChange={setIsDialogOpen}/>
       <div className = "py-4 px-4 md:px-8 flex flex-col gap-y-4">
         <div className="py-4 px-4 md:px-8 flex items-center justify-between">
           <h5 className="text-lg font-semibold text-gray-900 tracking-tight">

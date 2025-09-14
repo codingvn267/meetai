@@ -36,7 +36,7 @@ export const AgentsView = () => {
   const items = data?.items ?? [];
 
   return (
-    <div className="flex-1 pb-4 px-4 md:px-8 flex flex-col gap-y-4 text-zinc-900 [&_th]:text-zinc-800 [&_td]:text-zinc-900">
+    <div className="flex-1 pb-4 px-4 md:px-8 flex flex-col gap-y-4">
       <DataTable 
         data={items}
         columns={columns}

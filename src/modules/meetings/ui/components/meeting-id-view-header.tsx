@@ -22,15 +22,15 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 interface Props {
-  agentId: string;
-  agentName: string;
+  meetingId: string;
+  meetingName: string;
   onEdit: () => void;
   onRemove: () => void;
 }
 
-export const AgentIdViewHeader = ({
-  agentId,
-  agentName,
+export const MeetingIdViewHeader = ({
+  meetingId,
+  meetingName,
   onEdit,
   onRemove,
 }: Props) => {
@@ -43,7 +43,7 @@ export const AgentIdViewHeader = ({
               asChild
               className="font-semibold text-[15px] sm:text-base text-gray-700 hover:text-gray-900 dark:text-zinc-300 dark:hover:text-zinc-100 transition-colors"
             >
-              <Link href="/agents">My Agents</Link>
+              <Link href="/meetings">My Meetings</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
 
@@ -53,7 +53,7 @@ export const AgentIdViewHeader = ({
 
           <BreadcrumbItem className="max-w-[55vw]">
             <BreadcrumbPage className="font-semibold text-lg text-gray-900 dark:text-gray-100 truncate">
-              {agentName}
+              {meetingName}
             </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
