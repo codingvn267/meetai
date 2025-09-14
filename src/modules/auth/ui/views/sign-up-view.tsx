@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { refine, z } from "zod";
+import { z } from "zod";
 import { OctagonAlertIcon } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -202,7 +202,7 @@ export const SignUpView = () => {
                 </div>
                 {!!error && (
                   <Alert className="bg-red-500/10 border border-red-500/20 text-red-700 rounded-lg shadow-sm p-4 flex items-start gap-4">
-                    <OctagonAlertIcon className="h-5 w-5 text-red-600 mt-1" />
+                    <OctagonAlertIcon className="icon-size text-red-600 mt-1" />
                     <div>
                       <AlertTitle className="text-sm font-semibold tracking-wide">
                         {error}
@@ -234,7 +234,7 @@ export const SignUpView = () => {
                     type="button"
                     className="w-full gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 hover:shadow-sm transition"
                   >
-                    <FaGoogle className="h-5 w-5" />
+                    <FaGoogle className="icon-large" />
                     Google
                   </Button>
 
@@ -245,7 +245,7 @@ export const SignUpView = () => {
                     type="button"
                     className="w-full gap-2 border border-gray-300 text-gray-700 hover:bg-gray-50 hover:shadow-sm transition"
                   >
-                    <FaGithub className="h-5 w-5" />
+                    <FaGithub className="icon-large" />
                     GitHub
                   </Button>
                 </div>

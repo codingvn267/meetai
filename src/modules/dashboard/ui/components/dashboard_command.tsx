@@ -25,15 +25,15 @@ export const DashboardCommand =({ open, setOpen}: Props) => {
           className="text-gray-600 dark:text-gray-400 px-2 py-1 text-sm font-medium"
         >
           <CommandItem className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer rounded-md">
-            <SearchIcon className="h-4 w-4" />
+            <SearchIcon className="icon-size" />
             Quick search
           </CommandItem>
           <CommandItem className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer rounded-md">
-            <CalendarIcon className="h-4 w-4" />
+            <CalendarIcon className="icon-size" />
             Upcoming meetings
           </CommandItem>
           <CommandItem className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer rounded-md">
-            <UserIcon className="h-4 w-4" />
+            <UserIcon className="icon-size" />
             Find an agent
           </CommandItem>
         </CommandGroup>

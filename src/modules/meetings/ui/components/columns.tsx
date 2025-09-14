@@ -46,7 +46,7 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
       {/* Instructions */}
       <div className="flex items-center gap-x-3 pl-1">
         <div className="flex items-center gap-x-1">
-          <CornerDownRightIcon className="size-4 text-zinc-400 dark:text-zinc-500" />
+          <CornerDownRightIcon className="icon-size text-zinc-400 dark:text-zinc-500" />
           <span className="text-sm text-zinc-600 dark:text-zinc-300 truncate max-w-[260px]">
             {row.original.agent.name}
           </span>
@@ -54,7 +54,7 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
         <GenerateAvatar
           variant = "botttsNeutral"
           seed={row.original.agent.name}
-          className="size-6 rounded-full bg-zinc-100 text-zinc-700 
+          className="avatar-sm rounded-full bg-zinc-100 text-zinc-700 
                     ring-2 ring-zinc-200 shadow-sm
                     dark:bg-zinc-800 dark:text-zinc-200 dark:ring-zinc-700"
         />
@@ -75,15 +75,15 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
         <Badge
           variant = "outline"
           className= {cn(
-            "capitalize [&>svg]:size-4",
+            "capitalize",
             statusColorMap[row.original.status as keyof typeof statusColorMap]
           )
-
           }
         >
           <Icon 
             className={cn(
-              row.original.status === "processing" && "animate-spin"
+              row.original.status === "processing" && "animate-spin",
+              "icon-size"
             )}
           />
           {row.original.status}
@@ -97,9 +97,9 @@ export const columns: ColumnDef<MeetingGetMany[number]>[] = [
     cell: ({ row }) => (
       <Badge
         variant = "outline"
-          className= "capitalize flex items-center gap-2 h-6 px-2 py-0.5 rounded-md bg-white/80 border border-zinc-200 text-[oklch(0.38_0.03_147)] shadow-sm dark:bg-zinc-900/60 dark:border-zinc-700 dark:text-white [&>svg]:size-4 [&>svg]:opacity-70"
+          className= "capitalize flex items-center gap-2 h-6 px-2 py-0.5 rounded-md bg-white/80 border border-zinc-200 text-[oklch(0.38_0.03_147)] shadow-sm dark:bg-zinc-900/60 dark:border-zinc-700 dark:text-white [&>svg]:opacity-70"
       >
-        <ClockFadingIcon className="shrink-0 text-emerald-600 dark:text-emerald-400"/>
+        <ClockFadingIcon className="icon-size shrink-0 text-emerald-600 dark:text-emerald-400"/>
         {row.original.duration ? formatDuration(row.original.duration) : "No duration"}
 
       </Badge>

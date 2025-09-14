@@ -21,7 +21,7 @@ export function ErrorState({ title, description }: Props) {
           <div className="absolute inset-0 h-12 w-12 rounded-full border-2 border-destructive" />
           {/* icon */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <AlertTriangleIcon className="h-6 w-6 text-destructive" />
+            <AlertTriangleIcon className="icon-size text-destructive" />
           </div>
         </div>
 

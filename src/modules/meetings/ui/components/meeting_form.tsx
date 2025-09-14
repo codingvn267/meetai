@@ -158,7 +158,7 @@ export const MeetingForm = ({
                           <GenerateAvatar 
                             variant="botttsNeutral"
                             seed={agent.name}
-                            className="size-6 rounded-full bg-zinc-100 text-zinc-700 
+                            className="avatar-md rounded-full bg-zinc-100 text-zinc-700 
                                       ring-2 ring-zinc-200 shadow-sm
                                       dark:bg-zinc-800 dark:text-zinc-200 dark:ring-zinc-700"
                           />

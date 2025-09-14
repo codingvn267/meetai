@@ -32,14 +32,15 @@ export const MeetingsListHeader = () => {
           <h5 className="text-lg font-semibold text-gray-900 tracking-tight">
             My Meetings
           </h5>
-          <Button
-            onClick={() => setIsDialogOpen(true)}
-            variant="default"
-            className="gap-2"
-          >
-            <PlusIcon className="w-4 h-4" />
-            Add Meeting
-          </Button>
+           <Button
+             onClick={() => setIsDialogOpen(true)}
+             variant="default"
+             size="sm"
+             className="gap-2"
+           >
+             <PlusIcon className="icon-size" />
+             Add Meeting
+           </Button>
         </div>
         <ScrollArea>
           <div className = "flex items-center gap-x-2 p-1">
@@ -51,8 +52,8 @@ export const MeetingsListHeader = () => {
               text-[oklch(0.38_0.03_147)] dark:text-white
               hover:bg-accent hover:text-accent-foreground
               dark:hover:bg-accent dark:hover:text-accent-foreground
-              [&>svg]:size-4">
-                <XCircleIcon className="size-4" />
+              [&>svg]:inline-block">
+                <XCircleIcon className="icon-size" />
                 Clear
               </Button>
             )}
